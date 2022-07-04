@@ -60,7 +60,7 @@ static void jtagtap_reset(void)
 	if (platform_hwversion() == 0) {
 		volatile int i;
 		gpio_clear(TRST_PORT, TRST_PIN);
-		for(i = 0; i < 10000; i++) asm("nop");
+		for(i = 0; i < 10000; i++) __asm__("nop");
 		gpio_set(TRST_PORT, TRST_PIN);
 	}
 #endif
